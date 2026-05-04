@@ -1,0 +1,98 @@
+# =============================================
+# Maven Automation TestNG - Java Project
+# =============================================
+
+# --------------- Build Output ----------------
+target/
+build/
+out/
+bin/
+
+# --------------- Maven -----------------------
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# --------------- IDE: IntelliJ IDEA ----------
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# --------------- IDE: Eclipse ----------------
+.classpath
+.project
+.settings/
+.factorypath
+
+# --------------- IDE: VS Code ----------------
+.vscode/
+
+# --------------- IDE: NetBeans ---------------
+nbproject/private/
+nbbuild/
+nbdist/
+nb-configuration.xml
+
+# --------------- Java ------------------------
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+replay_pid*
+
+# --------------- TestNG ----------------------
+test-output/
+test-report/
+emailable-report.html
+testng-results.xml
+testng-failed.xml
+
+# --------------- Allure Reports --------------
+allure-results/
+allure-report/
+.allurerc
+
+# --------------- ExtentReports ---------------
+extent-reports/
+ExtentReport/
+spark-report/
+
+# --------------- Screenshots & Videos --------
+screenshots/
+videos/
+recordings/
+
+# --------------- Logs ------------------------
+logs/
+*.log
+
+# --------------- OS Generated ----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --------------- Environment / Config --------
+*.env
+.env.local
+.env.*.local
+config/local.*
+
+# --------------- Misc ------------------------
+*.swp
+*.swo
+*~
+.project.lock
