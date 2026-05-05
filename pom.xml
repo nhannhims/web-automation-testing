@@ -29,6 +29,7 @@
         <opencsv.version>5.9</opencsv.version>
         <allure.version>2.29.0</allure.version>
         <aspectj.version>1.9.22.1</aspectj.version>
+        <rest-assured.version>5.5.0</rest-assured.version>
 
         <!-- Plugin Versions -->
         <maven-surefire.version>3.5.2</maven-surefire.version>
@@ -94,7 +95,20 @@
             <version>${allure.version}</version>
         </dependency>
 
+        <!-- RestAssured - API Testing -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
 
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 

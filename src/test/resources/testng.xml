@@ -7,9 +7,15 @@
         <listener class-name="com.demo.listeners.AnnotationTransformer" />
     </listeners>
 
-    <test name="Login Tests">
+    <test name="UI Tests">
         <classes>
             <class name="com.demo.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="API Tests">
+        <classes>
+            <class name="com.demo.tests.UserAPITest"/>
         </classes>
     </test>
 
