@@ -1,5 +1,6 @@
 package com.demo.drivers;
 
+import com.demo.utils.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +13,11 @@ public class ChromeDriverManager {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized"); // Maximize window
         options.addArguments("--disable-notifications"); // Disable notifications
-        // options.addArguments("--headless"); // Run in headless mode without UI
+        
+        if (Boolean.parseBoolean(ConfigReader.getProperty("headless"))) {
+            options.addArguments("--headless=new");
+            options.addArguments("--window-size=1920,1080");
+        }
         
         return new ChromeDriver(options);
     }
