@@ -72,4 +72,4 @@ mvn allure:report
 Test data is managed in `src/test/resources/data/login_data.csv`. You can add new test cases or update existing credentials directly in this file without changing the code.
 
 ---
-*Created by Antigravity Automation Team*
+*Created by Co-Well Education Automation Team*
