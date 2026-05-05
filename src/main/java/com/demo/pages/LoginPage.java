@@ -1,23 +1,14 @@
 package com.demo.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
-
+public class LoginPage extends CommonPage {
     // Locators
-    @FindBy(id = "username")
-    private WebElement usernameInput;
-
-    @FindBy(id = "password")
-    private WebElement passwordInput;
-
-    @FindBy(css = "button[type='submit']")
-    private WebElement loginButton;
-
-    @FindBy(id = "flash")
-    private WebElement messageLabel;
+    private String txtLoginHeading = "xpath=//h2[contains(text(), 'Login to your account')]";
+    private String iptUsername = "css=input[data-qa='login-email']  ";
+    private String iptPassword = "css=input[data-qa='login-password']";
+    private String btnLogin = "css=button[data-qa='login-button']";
+    private String txtErrorMessage = "css=.login-form p";
 
     // Constructor
     public LoginPage(WebDriver driver) {
@@ -26,15 +17,15 @@ public class LoginPage extends BasePage {
 
     // Actions
     public void enterUsername(String username) {
-        enterText(usernameInput, username);
+        enterText(iptUsername, username);
     }
 
     public void enterPassword(String password) {
-        enterText(passwordInput, password);
+        enterText(iptPassword, password);
     }
 
     public void clickLogin() {
-        click(loginButton);
+        click(btnLogin);
     }
 
     public void login(String username, String password) {
@@ -43,7 +34,11 @@ public class LoginPage extends BasePage {
         clickLogin();
     }
 
-    public String getMessage() {
-        return getText(messageLabel);
+    public boolean isLoginHeadingVisible() {
+        return isElementVisible(txtLoginHeading);
+    }
+
+    public String getErrorMessage() {
+        return getText(txtErrorMessage);
     }
 }

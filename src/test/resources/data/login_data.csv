@@ -1,0 +1,3 @@
+testCaseId,username,password,expectedResult
+TC002,huunhan.test@test.vn,Password@123,pass
+TC003,huunhan.test@test.vn,Password@456,Your email or password is incorrect!

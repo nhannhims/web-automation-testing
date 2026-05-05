@@ -5,9 +5,9 @@
         <listener class-name="com.demo.listeners.TestListener" />
     </listeners>
 
-    <test name="Sample Tests">
+    <test name="Login Tests">
         <classes>
-            <class name="com.demo.tests.SampleTest"/>
+            <class name="com.demo.tests.LoginTest"/>
         </classes>
     </test>
 
