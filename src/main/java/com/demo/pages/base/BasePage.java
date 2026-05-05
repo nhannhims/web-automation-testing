@@ -3,6 +3,7 @@ package com.demo.pages.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -51,11 +52,13 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
     }
 
+    @Step("Click on element: {0}")
     protected void click(String locator) {
         waitForElementVisible(locator);
         getElement(locator).click();
     }
 
+    @Step("Enter text '{1}' into element: {0}")
     protected void enterText(String locator, String text) {
         waitForElementVisible(locator);
         WebElement element = getElement(locator);

@@ -40,4 +40,7 @@ public class ScreenshotUtils {
             return "";
         }
     }
+    public static byte[] getScreenshotAsBytes(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 }

@@ -1,6 +1,7 @@
 package com.demo.pages;
 
 import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Step;
 
 public class LoginPage extends CommonPage {
     // Locators
@@ -28,6 +29,7 @@ public class LoginPage extends CommonPage {
         click(btnLogin);
     }
 
+    @Step("Login with username: {0} and password: {1}")
     public void login(String username, String password) {
         enterUsername(username);
         enterPassword(password);
