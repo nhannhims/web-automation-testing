@@ -1,6 +1,7 @@
 package com.demo.listeners;
 
 import com.demo.utils.ConfigReader;
+import com.demo.utils.LogUtils;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
@@ -18,7 +19,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
         if (!result.isSuccess()) {
             if (count < MAX_RETRY_COUNT) {
                 count++;
-                System.out.println(">>> Flaky detected! Retrying test '" + result.getName() + "' for the " + count + " time(s).");
+                LogUtils.warn(">>> Flaky detected! Retrying test '" + result.getName() + "' for the " + count + " time(s).");
                 return true;
             }
         }

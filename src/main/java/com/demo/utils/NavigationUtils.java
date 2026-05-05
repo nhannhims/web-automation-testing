@@ -11,7 +11,7 @@ public class NavigationUtils {
      */
     public static void openUrl(WebDriver driver, String url) {
         if (driver != null) {
-            System.out.println("Navigating to URL: " + url);
+            LogUtils.info("Navigating to URL: " + url);
             driver.get(url);
         }
     }
@@ -41,7 +41,7 @@ public class NavigationUtils {
      */
     public static void refreshPage(WebDriver driver) {
         if (driver != null) {
-            System.out.println("Refreshing the page...");
+            LogUtils.info("Refreshing the page...");
             driver.navigate().refresh();
         }
     }
@@ -51,7 +51,7 @@ public class NavigationUtils {
      */
     public static void navigateBack(WebDriver driver) {
         if (driver != null) {
-            System.out.println("Navigating back to the previous page...");
+            LogUtils.info("Navigating back to the previous page...");
             driver.navigate().back();
         }
     }
@@ -61,7 +61,7 @@ public class NavigationUtils {
      */
     public static void navigateForward(WebDriver driver) {
         if (driver != null) {
-            System.out.println("Navigating forward to the next page...");
+            LogUtils.info("Navigating forward to the next page...");
             driver.navigate().forward();
         }
     }
@@ -77,7 +77,7 @@ public class NavigationUtils {
             for (String window : allWindows) {
                 if (!window.equals(currentWindow)) {
                     driver.switchTo().window(window);
-                    System.out.println("Switched to new window/tab: " + driver.getTitle());
+                    LogUtils.info("Switched to new window/tab: " + driver.getTitle());
                     break;
                 }
             }
@@ -91,7 +91,7 @@ public class NavigationUtils {
         if (driver != null) {
             driver.close();
             driver.switchTo().window(mainWindowHandle);
-            System.out.println("Closed current window and switched back to main window");
+            LogUtils.info("Closed current window and switched back to main window");
         }
     }
 }

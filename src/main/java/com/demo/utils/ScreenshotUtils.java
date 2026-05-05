@@ -20,7 +20,7 @@ public class ScreenshotUtils {
      */
     public static String takeScreenshot(WebDriver driver, String testName) {
         if (driver == null) {
-            System.out.println("Driver is null. Cannot take screenshot!");
+            LogUtils.error("Driver is null. Cannot take screenshot!");
             return "";
         }
         
@@ -33,10 +33,10 @@ public class ScreenshotUtils {
             File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File destination = new File(filePath);
             FileUtils.copyFile(source, destination);
-            System.out.println("Screenshot saved at: " + filePath);
+            LogUtils.info("Screenshot saved at: " + filePath);
             return filePath;
         } catch (IOException e) {
-            System.out.println("Exception while taking screenshot: " + e.getMessage());
+            LogUtils.error("Exception while taking screenshot: " + e.getMessage());
             return "";
         }
     }
