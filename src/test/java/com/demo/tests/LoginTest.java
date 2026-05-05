@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 
 public class LoginTest extends BaseTest {
 
-    @DataProvider(name = "loginDataProvider")
+    @DataProvider(name = "loginDataProvider", parallel = true)
     public Object[][] getLoginData(Method method) {
         String filePath = "src/test/resources/data/login_data.csv";
         if (method.getName().equals("testValidLogin")) {
@@ -30,14 +30,14 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "loginDataProvider", description = "TC002: Login User with correct email and password")
     public void testValidLogin(String username, String password, String expectedResult) {
         // Init Page
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
         
         // 1. Navigate to application URL
-        NavigationUtils.openUrl(driver, ConfigReader.getProperty("url"));
+        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty("url"));
         
         // 2. Verify that home page is visible successfully
-        Assert.assertTrue(NavigationUtils.getCurrentUrl(driver).contains(ConfigReader.getProperty("url")));
+        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty("url")));
         
         // 3. Click on 'Signup / Login' button
         homePage.clickHeaderNavMenu(HeaderNavigationConstants.LOGIN_SIGNUP_LINK);
@@ -59,14 +59,14 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "loginDataProvider", description = "TC003: Login User with incorrect email and password")
     public void testInvalidLogin(String username, String password, String expectedResult) {
         // Init Page
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
         
         // 1. Navigate to application URL
-        NavigationUtils.openUrl(driver, ConfigReader.getProperty("url"));
+        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty("url"));
         
         // 2. Verify that home page is visible successfully
-        Assert.assertTrue(NavigationUtils.getCurrentUrl(driver).contains(ConfigReader.getProperty("url")));
+        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty("url")));
         
         // 3. Click on 'Signup / Login' button
         homePage.clickHeaderNavMenu(HeaderNavigationConstants.LOGIN_SIGNUP_LINK);

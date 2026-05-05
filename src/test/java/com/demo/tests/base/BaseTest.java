@@ -9,14 +9,16 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
-    protected WebDriver driver = null;
 
     @Parameters("browser")
     @BeforeMethod
     public void setUp(@Optional("chrome") String browser) {
         // Initialize browser based on parameter from testng.xml (default is chrome)
         DriverManager.initDriver(browser);
-        driver = DriverManager.getDriver();
+    }
+
+    public WebDriver getDriver() {
+        return DriverManager.getDriver();
     }
 
     @AfterMethod
