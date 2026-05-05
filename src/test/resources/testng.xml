@@ -3,6 +3,7 @@
 
     <listeners>
         <listener class-name="com.demo.listeners.TestListener" />
+        <listener class-name="com.demo.listeners.AnnotationTransformer" />
     </listeners>
 
     <test name="Login Tests">
