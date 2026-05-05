@@ -18,12 +18,12 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, TimeConstants.EXPLICIT_WAIT);
     }
 
-    // Thay thế một hoặc nhiều chuỗi định dạng (ví dụ: %s) bằng giá trị động
+    // Replace one or more format strings (e.g. %s) with dynamic values
     protected String setDynamicLocator(String locator, String... values) {
         return String.format(locator, (Object[]) values);
     }
 
-    // Lấy đối tượng By từ chuỗi locator
+    // Get By object from locator string
     private By getByLocator(String locator) {
         By by;
         if (locator.startsWith("id=")) {
@@ -43,7 +43,7 @@ public class BasePage {
         return by;
     }
 
-    // Tự động nhận diện xpath, css, id, ... và lấy Element
+    // Auto-identify xpath, css, id, etc. and get Element
     protected WebElement getElement(String locator) {
         return driver.findElement(getByLocator(locator));
     }
