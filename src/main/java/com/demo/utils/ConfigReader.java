@@ -9,12 +9,28 @@ public class ConfigReader {
     private static final String CONFIG_PATH = "src/test/resources/configs/config.properties";
 
     static {
-        try (FileInputStream fileInputStream = new FileInputStream(CONFIG_PATH)) {
+        String env = System.getProperty("env");
+        String configFileName;
+        
+        if (env == null || env.isEmpty()) {
+            configFileName = "config.properties";
+        } else {
+            configFileName = env.toLowerCase() + ".properties";
+        }
+        
+        String fullConfigPath = "src/test/resources/configs/" + configFileName;
+        
+        try (FileInputStream fileInputStream = new FileInputStream(fullConfigPath)) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Could not load config.properties at " + CONFIG_PATH);
+            System.err.println("WARNING: Could not load config file at " + fullConfigPath + ". Falling back to config.properties");
+            try (FileInputStream defaultStream = new FileInputStream(CONFIG_PATH)) {
+                properties = new Properties();
+                properties.load(defaultStream);
+            } catch (IOException ex) {
+                throw new RuntimeException("Could not load even the default config.properties!");
+            }
         }
     }
 
