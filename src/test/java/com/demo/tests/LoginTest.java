@@ -80,7 +80,7 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogin();
         
         // 7. Verify error message
-        Assert.assertTrue(loginPage.getErrorMessage().contains(expectedResult),
+        Assert.assertTrue(loginPage.getLoginErrorMessage().contains(expectedResult),
                 "Error message '" + expectedResult + "' is not visible!");
     }
 }

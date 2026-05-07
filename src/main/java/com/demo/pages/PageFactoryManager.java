@@ -13,6 +13,16 @@ public class PageFactoryManager {
     public static LoginPage getLoginPage(WebDriver driver) {
         return new LoginPage(driver);
     }
-    
-    // Add other pages as needed
+
+    public static SignupPage getSignupPage(WebDriver driver) {
+        return new SignupPage(driver);
+    }
+
+    public static AccountCreatedPage getAccountCreatedPage(WebDriver driver) {
+        return new AccountCreatedPage(driver);
+    }
+
+    public static AccountDeletedPage getAccountDeletedPage(WebDriver driver) {
+        return new AccountDeletedPage(driver);
+    }
 }

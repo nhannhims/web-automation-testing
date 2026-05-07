@@ -10,6 +10,7 @@
     <test name="UI Tests">
         <classes>
             <class name="com.demo.tests.LoginTest"/>
+            <class name="com.demo.tests.RegisterUserTest"/>
         </classes>
     </test>
 
