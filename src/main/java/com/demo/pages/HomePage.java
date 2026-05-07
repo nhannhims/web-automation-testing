@@ -12,7 +12,7 @@ public class HomePage extends CommonPage {
     }
 
     // Actions
-    public boolean isLoginHeadingVisible() {
+    public boolean isLoggedInUserVisible() {
         return isElementVisible(txtLoggedInSuccessfullyHeading);
     }
 }

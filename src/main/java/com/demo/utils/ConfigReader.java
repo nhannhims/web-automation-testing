@@ -1,5 +1,6 @@
 package com.demo.utils;
 
+import com.demo.constants.FrameworkConstants;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -9,7 +10,7 @@ public class ConfigReader {
     private static final String CONFIG_PATH = "src/test/resources/configs/config.properties";
 
     static {
-        String env = System.getProperty("env");
+        String env = System.getProperty(FrameworkConstants.ENV);
         String configFileName;
         
         if (env == null || env.isEmpty()) {

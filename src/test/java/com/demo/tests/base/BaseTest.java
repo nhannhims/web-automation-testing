@@ -1,5 +1,6 @@
 package com.demo.tests.base;
 
+import com.demo.constants.FrameworkConstants;
 import com.demo.drivers.DriverManager;
 
 import org.openqa.selenium.WebDriver;
@@ -10,9 +11,9 @@ import org.testng.annotations.Parameters;
 
 public class BaseTest {
 
-    @Parameters("browser")
+    @Parameters(FrameworkConstants.BROWSER)
     @BeforeMethod
-    public void setUp(@Optional("chrome") String browser) {
+    public void setUp(@Optional(FrameworkConstants.CHROME) String browser) {
         // Initialize browser based on parameter from testng.xml (default is chrome)
         DriverManager.initDriver(browser);
     }

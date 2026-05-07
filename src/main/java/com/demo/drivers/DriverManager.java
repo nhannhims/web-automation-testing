@@ -1,5 +1,6 @@
 package com.demo.drivers;
 
+import com.demo.constants.FrameworkConstants;
 import org.openqa.selenium.WebDriver;
 import com.demo.constants.TimeConstants;
 
@@ -21,13 +22,13 @@ public class DriverManager {
             WebDriver webDriver;
             
             switch (browser.toLowerCase()) {
-                case "firefox":
+                case FrameworkConstants.FIREFOX:
                     webDriver = FirefoxDriverManager.createDriver();
                     break;
-                case "edge":
+                case FrameworkConstants.EDGE:
                     webDriver = EdgeDriverManager.createDriver();
                     break;
-                case "chrome":
+                case FrameworkConstants.CHROME:
                 default:
                     webDriver = ChromeDriverManager.createDriver();
                     break;

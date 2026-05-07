@@ -1,6 +1,7 @@
 package com.demo.api;
 
 import com.demo.constants.APIConstants;
+import com.demo.constants.FrameworkConstants;
 import com.demo.utils.ConfigReader;
 import com.demo.models.UserModel;
 import com.demo.utils.APIUtils;
@@ -10,7 +11,7 @@ import java.util.Map;
 
 public class UserAPI {
 
-    private static final String BASE_URL = ConfigReader.getProperty("url");
+    private static final String BASE_URL = ConfigReader.getProperty(FrameworkConstants.URL);
     private static final String CREATE_ACCOUNT_ENDPOINT = BASE_URL + APIConstants.CREATE_ACCOUNT_PATH;
     private static final String DELETE_ACCOUNT_ENDPOINT = BASE_URL + APIConstants.DELETE_ACCOUNT_PATH;
 

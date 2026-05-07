@@ -1,5 +1,6 @@
 package com.demo.tests;
 
+import com.demo.constants.APIConstants;
 import com.demo.data.IUserData;
 import com.demo.models.UserModel;
 import com.demo.api.UserAPI;
@@ -18,16 +19,16 @@ public class UserAPITest implements IUserData {
         Response createResponse = UserAPI.createAccount(user);
 
         // Verify tạo User thành công
-        Assert.assertEquals(createResponse.getStatusCode(), 200, "Expected HTTP 200");
-        Assert.assertEquals(createResponse.jsonPath().getString("message"), "User created!", "Create message mismatch!");
-        Assert.assertEquals(createResponse.jsonPath().getInt("responseCode"), 201, "Create response code mismatch!");
+        Assert.assertEquals(createResponse.getStatusCode(), APIConstants.SC_OK, "Expected HTTP 200");
+        Assert.assertEquals(createResponse.jsonPath().getString("message"), APIConstants.SUCCESS_USER_CREATED, "Create message mismatch!");
+        Assert.assertEquals(createResponse.jsonPath().getInt("responseCode"), APIConstants.SC_CREATED, "Create response code mismatch!");
 
         // --- PHẦN 3: XÓA USER VỪA TẠO ---
         Response deleteResponse = UserAPI.deleteAccount(user.getEmail(), user.getPassword());
 
         // Verify xóa User thành công
-        Assert.assertEquals(deleteResponse.getStatusCode(), 200, "Expected HTTP 200 for Delete");
-        Assert.assertEquals(deleteResponse.jsonPath().getString("message"), "Account deleted!", "Delete message mismatch!");
-        Assert.assertEquals(deleteResponse.jsonPath().getInt("responseCode"), 200, "Delete response code mismatch!");
+        Assert.assertEquals(deleteResponse.getStatusCode(), APIConstants.SC_OK, "Expected HTTP 200 for Delete");
+        Assert.assertEquals(deleteResponse.jsonPath().getString("message"), APIConstants.SUCCESS_ACCOUNT_DELETED, "Delete message mismatch!");
+        Assert.assertEquals(deleteResponse.jsonPath().getInt("responseCode"), APIConstants.SC_OK, "Delete response code mismatch!");
     }
 }

@@ -1,6 +1,8 @@
 package com.demo.tests;
 
+import com.demo.constants.FrameworkConstants;
 import com.demo.constants.HeaderNavigationConstants;
+import com.demo.constants.TestDataConstants;
 import com.demo.pages.HomePage;
 import com.demo.pages.LoginPage;
 import com.demo.tests.base.BaseTest;
@@ -18,11 +20,10 @@ public class LoginTest extends BaseTest {
 
     @DataProvider(name = "loginDataProvider", parallel = true)
     public Object[][] getLoginData(Method method) {
-        String filePath = "src/test/resources/data/login_data.csv";
         if (method.getName().equals("testValidLogin")) {
-            return CSVUtils.getDataByTestCase(filePath, "TC002");
+            return CSVUtils.getDataByTestCase(TestDataConstants.LOGIN_DATA_PATH, TestDataConstants.TC_LOGIN_VALID);
         } else if (method.getName().equals("testInvalidLogin")) {
-            return CSVUtils.getDataByTestCase(filePath, "TC003");
+            return CSVUtils.getDataByTestCase(TestDataConstants.LOGIN_DATA_PATH, TestDataConstants.TC_LOGIN_INVALID);
         }
         return null;
     }
@@ -34,10 +35,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
         
         // 1. Navigate to application URL
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty("url"));
+        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
         
         // 2. Verify that home page is visible successfully
-        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty("url")));
+        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty(FrameworkConstants.URL)));
         
         // 3. Click on 'Signup / Login' button
         homePage.clickHeaderNavMenu(HeaderNavigationConstants.LOGIN_SIGNUP_LINK);
@@ -53,7 +54,7 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogin();
         
         // 7. Verify that 'Logged in successfully' is visible
-        Assert.assertTrue(homePage.isLoginHeadingVisible(), "Heading 'Logged in successfully' is not visible!");
+        Assert.assertTrue(homePage.isLoggedInUserVisible(), "Heading 'Logged in successfully' is not visible!");
     }
 
     @Test(dataProvider = "loginDataProvider", description = "TC003: Login User with incorrect email and password")
@@ -63,10 +64,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
         
         // 1. Navigate to application URL
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty("url"));
+        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
         
         // 2. Verify that home page is visible successfully
-        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty("url")));
+        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty(FrameworkConstants.URL)));
         
         // 3. Click on 'Signup / Login' button
         homePage.clickHeaderNavMenu(HeaderNavigationConstants.LOGIN_SIGNUP_LINK);
