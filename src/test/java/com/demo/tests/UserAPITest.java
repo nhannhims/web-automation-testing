@@ -12,22 +12,22 @@ public class UserAPITest implements IUserData {
 
     @Test(description = "API E2E: Create User Account then Delete it using Model & Interface")
     public void testCreateAndDeleteUserAccountViaAPI() {
-        // --- PHẦN 1: LẤY DỮ LIỆU TỪ INTERFACE ---
+        // --- PART 1: GET DATA FROM INTERFACE ---
         UserModel user = getValidUser();
 
-        // --- PHẦN 2: TẠO USER MỚI ---
+        // --- PART 2: CREATE NEW USER ---
         Response createResponse = UserAPI.createAccount(user);
 
-        // Verify tạo User thành công
+        // Verify user creation success
         createResponse.then()
                 .statusCode(APIConstants.SC_OK)
                 .body("message", equalTo(APIConstants.SUCCESS_USER_CREATED))
                 .body("responseCode", equalTo(APIConstants.SC_CREATED));
 
-        // --- PHẦN 3: XÓA USER VỪA TẠO ---
+        // --- PART 3: DELETE THE CREATED USER ---
         Response deleteResponse = UserAPI.deleteAccount(user.getEmail(), user.getPassword());
 
-        // Verify xóa User thành công
+        // Verify user deletion success
         deleteResponse.then()
                 .statusCode(APIConstants.SC_OK)
                 .body("message", equalTo(APIConstants.SUCCESS_ACCOUNT_DELETED))

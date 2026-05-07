@@ -32,13 +32,6 @@ public class LoginPage extends CommonPage {
         click(btnLogin);
     }
 
-    @Step("Login with username: {0} and password: {1}")
-    public void login(String username, String password) {
-        enterUsername(username);
-        enterPassword(password);
-        clickLogin();
-    }
-
     public boolean isLoginHeadingVisible() {
         return isElementVisible(txtLoginHeading);
     }

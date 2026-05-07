@@ -5,6 +5,7 @@ import com.demo.constants.HeaderNavigationConstants;
 import com.demo.constants.TestDataConstants;
 import com.demo.pages.HomePage;
 import com.demo.pages.LoginPage;
+import com.demo.pages.PageFactoryManager;
 import com.demo.tests.base.BaseTest;
 import com.demo.utils.CSVUtils;
 import com.demo.utils.ConfigReader;
@@ -30,10 +31,10 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "loginDataProvider", description = "TC002: Login User with correct email and password")
     public void testValidLogin(String username, String password, String expectedResult) {
-        // Init Page
-        HomePage homePage = new HomePage(getDriver());
-        LoginPage loginPage = new LoginPage(getDriver());
-        
+        // Init Pages
+        HomePage homePage = PageFactoryManager.getHomePage(getDriver());
+        LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
+
         // 1. Navigate to application URL
         NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
         
@@ -46,11 +47,9 @@ public class LoginTest extends BaseTest {
         // 4. Verify 'Login to your account' is visible
         Assert.assertTrue(loginPage.isLoginHeadingVisible(), "Heading 'Login to your account' is not visible!");
         
-        // 5. Enter correct email address and password from CSV
+        // 5-6. Perform Login actions
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
-        
-        // 6. Click 'login' button
         loginPage.clickLogin();
         
         // 7. Verify that 'Logged in successfully' is visible
@@ -59,10 +58,10 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "loginDataProvider", description = "TC003: Login User with incorrect email and password")
     public void testInvalidLogin(String username, String password, String expectedResult) {
-        // Init Page
-        HomePage homePage = new HomePage(getDriver());
-        LoginPage loginPage = new LoginPage(getDriver());
-        
+        // Init Pages
+        HomePage homePage = PageFactoryManager.getHomePage(getDriver());
+        LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
+
         // 1. Navigate to application URL
         NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
         
@@ -75,14 +74,12 @@ public class LoginTest extends BaseTest {
         // 4. Verify 'Login to your account' is visible
         Assert.assertTrue(loginPage.isLoginHeadingVisible(), "Heading 'Login to your account' is not visible!");
         
-        // 5. Enter incorrect email address and password from CSV
+        // 5-6. Perform Login actions (failure case)
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
-        
-        // 6. Click 'login' button
         loginPage.clickLogin();
         
-        // 7. Verify error message from CSV is visible
+        // 7. Verify error message
         Assert.assertTrue(loginPage.getErrorMessage().contains(expectedResult),
                 "Error message '" + expectedResult + "' is not visible!");
     }

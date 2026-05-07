@@ -5,9 +5,16 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import io.restassured.parsing.Parser;
+
 import java.util.Map;
 
 public class APIUtils {
+
+    static {
+        RestAssured.defaultParser = Parser.JSON;
+        RestAssured.registerParser("text/html", Parser.JSON);
+    }
 
     /**
      * Perform a GET request
