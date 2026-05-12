@@ -3,7 +3,8 @@ package com.demo.utils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.apache.commons.io.FileUtils;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +33,10 @@ public class ScreenshotUtils {
         try {
             File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             File destination = new File(filePath);
-            FileUtils.copyFile(source, destination);
+            if (!destination.getParentFile().exists()) {
+                destination.getParentFile().mkdirs();
+            }
+            Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
             LogUtils.info("Screenshot saved at: " + filePath);
             return filePath;
         } catch (IOException e) {

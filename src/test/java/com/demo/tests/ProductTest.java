@@ -1,6 +1,7 @@
 package com.demo.tests;
 
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 import com.demo.constants.FrameworkConstants;
 import com.demo.constants.HeaderNavigationConstants;
@@ -46,11 +47,13 @@ public class ProductTest extends BaseTest {
 
         // 9. Verify that detail detail is visible: product name, category, price,
         // availability, condition, brand
-        Assert.assertTrue(productDetailPage.isProductNameVisible(), "Product Name is not visible!");
-        Assert.assertTrue(productDetailPage.isCategoryVisible(), "Category is not visible!");
-        Assert.assertTrue(productDetailPage.isPriceVisible(), "Price is not visible!");
-        Assert.assertTrue(productDetailPage.isAvailabilityVisible(), "Availability is not visible!");
-        Assert.assertTrue(productDetailPage.isConditionVisible(), "Condition is not visible!");
-        Assert.assertTrue(productDetailPage.isBrandVisible(), "Brand is not visible!");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(productDetailPage.isProductNameVisible(), "Product Name is not visible!");
+        softAssert.assertTrue(productDetailPage.isCategoryVisible(), "Category is not visible!");
+        softAssert.assertTrue(productDetailPage.isPriceVisible(), "Price is not visible!");
+        softAssert.assertTrue(productDetailPage.isAvailabilityVisible(), "Availability is not visible!");
+        softAssert.assertTrue(productDetailPage.isConditionVisible(), "Condition is not visible!");
+        softAssert.assertTrue(productDetailPage.isBrandVisible(), "Brand is not visible!");
+        softAssert.assertAll();
     }
 }

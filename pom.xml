@@ -23,7 +23,7 @@
         <!-- Dependency Versions -->
         <testng.version>7.10.2</testng.version>
         <selenium.version>4.27.0</selenium.version>
-        <webdrivermanager.version>5.9.2</webdrivermanager.version>
+
         <log4j.version>2.24.3</log4j.version>
         <slf4j.version>2.0.16</slf4j.version>
         <opencsv.version>5.9</opencsv.version>
@@ -53,12 +53,7 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- WebDriverManager - Auto manage browser drivers -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-        </dependency>
+
 
 
 
