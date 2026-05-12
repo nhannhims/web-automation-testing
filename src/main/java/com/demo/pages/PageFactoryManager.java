@@ -29,4 +29,12 @@ public class PageFactoryManager {
     public static ContactUsPage getContactUsPage(WebDriver driver) {
         return new ContactUsPage(driver);
     }
+
+    public static ProductsPage getProductsPage(WebDriver driver) {
+        return new ProductsPage(driver);
+    }
+
+    public static ProductDetailPage getProductDetailPage(WebDriver driver) {
+        return new ProductDetailPage(driver);
+    }
 }

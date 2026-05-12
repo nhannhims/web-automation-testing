@@ -11,6 +11,7 @@
         <classes>
             <class name="com.demo.tests.LoginTest"/>
             <class name="com.demo.tests.RegisterUserTest"/>
+            <class name="com.demo.tests.ProductTest"/>
         </classes>
     </test>
 
