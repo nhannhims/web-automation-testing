@@ -1,6 +1,8 @@
 package com.demo.constants;
 
 public class FrameworkConstants {
+    public static final String PROJECT_PATH = System.getProperty("user.dir");
+
     private FrameworkConstants() {
     }
 

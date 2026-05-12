@@ -9,6 +9,6 @@ public class HeaderNavigationConstants {
     public static final String PRODUCTS_LINK = "Products";
     public static final String CART_LINK = "Cart";
     public static final String LOGIN_SIGNUP_LINK = "/login";
-    public static final String CONTACT_LINK = "Contact";
+    public static final String CONTACT_LINK = "/contact_us";
     public static final String DELETE_ACCOUNT_LINK = "/delete_account";
 }

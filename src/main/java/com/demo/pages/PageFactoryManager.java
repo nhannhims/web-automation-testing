@@ -25,4 +25,8 @@ public class PageFactoryManager {
     public static AccountDeletedPage getAccountDeletedPage(WebDriver driver) {
         return new AccountDeletedPage(driver);
     }
+
+    public static ContactUsPage getContactUsPage(WebDriver driver) {
+        return new ContactUsPage(driver);
+    }
 }

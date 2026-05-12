@@ -242,4 +242,15 @@ public class BasePage {
             return false;
         }
     }
+    @Step("Accept browser alert")
+    public void acceptAlert() {
+        try {
+            LogUtils.info("Accepting browser alert");
+            wait.until(ExpectedConditions.alertIsPresent());
+            driver.switchTo().alert().accept();
+        } catch (Exception e) {
+            LogUtils.error("Failed to accept browser alert. Error: " + e.getMessage());
+            throw e;
+        }
+    }
 }
