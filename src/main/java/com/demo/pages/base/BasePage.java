@@ -57,6 +57,15 @@ public class BasePage {
     }
 
     /**
+     * Internal method to identify locator type and return a list of WebElements.
+     * @param locator The locator string
+     * @return The list of WebElements found
+     */
+    protected java.util.List<WebElement> getElements(String locator) {
+        return driver.findElements(getByLocator(locator));
+    }
+
+    /**
      * Wait for an element to be visible on the page.
      * @param locator The locator string
      */

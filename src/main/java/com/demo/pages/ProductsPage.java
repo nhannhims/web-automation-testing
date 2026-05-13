@@ -2,9 +2,8 @@ package com.demo.pages;
 
 import org.openqa.selenium.WebDriver;
 import io.qameta.allure.Step;
-import com.demo.pages.base.BasePage;
 
-public class ProductsPage extends BasePage {
+public class ProductsPage extends CommonPage {
 
     // Locators
     private final String txtAllProductsHeading = "xpath=//h2[contains(@class, 'title') and text()='All Products']";
@@ -14,7 +13,8 @@ public class ProductsPage extends BasePage {
     private final String btnSearch = "id=submit_search";
     private final String txtSearchedProductsHeading = "xpath=//h2[contains(@class, 'title') and text()='%s']";
     private final String listProductItems = "xpath=//div[@class='features_items']//div[@class='col-sm-4']";
-    private final String btnAddToCartFirstProduct = "xpath=(//div[@class='features_items']//a[text()='Add to cart'])[1]";
+    private final String btnAddToCartFirstProduct = "xpath=(//div[@class='features_items']//a[contains(text(), 'Add to cart')])[1]";
+    private final String btnAddToCartByIndex = "xpath=(//div[@class='features_items']//div[@class='col-sm-4'])[%s]//a[contains(text(), 'Add to cart')]";
     private final String btnContinueShopping = "xpath=//button[text()='Continue Shopping']";
     private final String btnViewCart = "xpath=//u[text()='View Cart']";
 
@@ -61,6 +61,17 @@ public class ProductsPage extends BasePage {
     @Step("Click 'Continue Shopping' button")
     public void clickContinueShopping() {
         click(btnContinueShopping);
+    }
+
+    @Step("Add all searched products to cart")
+    public void addSearchedProductsToCart() {
+        int productCount = getElements(listProductItems).size();
+        com.demo.utils.LogUtils.info("Found " + productCount + " products to add to cart");
+        for (int i = 1; i <= productCount; i++) {
+            String locator = setDynamicLocator(btnAddToCartByIndex, String.valueOf(i));
+            click(locator);
+            clickContinueShopping();
+        }
     }
 
     @Step("Click 'View Cart' link in modal")

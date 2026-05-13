@@ -16,13 +16,19 @@ public class TestDataConstants {
     public static final String TC_REGISTER_EXISTING_USER = "TC005";
     public static final String TC_CONTACT_US = "TC006";
     public static final String TC_PLACE_ORDER = "TC015";
+    public static final String TC_SEARCH_VERIFY_CART_AFTER_LOGIN = "TC020";
 
     public static final String UPLOAD_FILE_PATH = FrameworkConstants.PROJECT_PATH
             + "/src/test/resources/data/upload_test.txt";
     public static final String CONTACT_US_SUCCESS_MSG = "Success! Your details have been submitted successfully.";
     public static final String SEARCH_PRODUCT_NAME = "Blue Top";
+    public static final String ALL_PRODUCTS_HEADING = "All Products";
     public static final String SEARCHED_PRODUCTS_HEADING = "Searched Products";
     public static final String ORDER_PLACED_SUCCESS_MSG = "Your order has been placed successfully!";
+    
+    // Login Data
+    public static final String VALID_USER_EMAIL = "huunhan.test@test.vn";
+    public static final String VALID_USER_PASSWORD = "Password@123";
     
     // Payment Data
     public static final String CARD_NAME = "John Doe";
