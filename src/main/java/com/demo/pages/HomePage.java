@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 public class HomePage extends CommonPage {
     // Locator
-    private String txtLoggedInSuccessfullyHeading = "xpath=//a[contains(text(), 'Logged in as')]";
+    private String txtLoggedInUserHeading = "xpath=//a[contains(text(), 'Logged in as')]";
 
     // Constructor
     public HomePage(WebDriver driver) {
@@ -18,6 +18,6 @@ public class HomePage extends CommonPage {
      */
     @Step("Verify 'Logged in as user' is visible")
     public boolean isLoggedInUserVisible() {
-        return isElementVisible(txtLoggedInSuccessfullyHeading);
+        return isElementVisible(txtLoggedInUserHeading);
     }
 }

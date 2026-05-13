@@ -7,7 +7,7 @@ import com.demo.pages.base.BasePage;
 
 public class CommonPage extends BasePage {
     // Locators
-    String headerNavMenu = "css=a[href='%s']";
+    String btnHeaderNavMenu = "css=a[href='%s']";
 
     // Constructor
     public CommonPage(WebDriver driver) {
@@ -20,7 +20,7 @@ public class CommonPage extends BasePage {
      */
     @Step("Click on header nav menu: {0}")
     public void clickHeaderNavMenu(String menuPath) {
-        click(setDynamicLocator(headerNavMenu, menuPath));
+        click(setDynamicLocator(btnHeaderNavMenu, menuPath));
     }
 
 }

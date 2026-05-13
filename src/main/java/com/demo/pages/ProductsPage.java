@@ -7,9 +7,13 @@ import com.demo.pages.base.BasePage;
 public class ProductsPage extends BasePage {
 
     // Locators
-    private final String allProductsTitle = "xpath=//h2[contains(@class, 'title') and text()='All Products']";
+    private final String txtAllProductsHeading = "xpath=//h2[contains(@class, 'title') and text()='All Products']";
     private final String productsList = "class=features_items";
-    private final String viewProductButton = "xpath=(//a[text()='View Product'])[1]";
+    private final String btnViewProduct = "xpath=(//a[text()='View Product'])[1]";
+    private final String txtSearchInput = "id=search_product";
+    private final String btnSearch = "id=submit_search";
+    private final String txtSearchedProductsHeading = "xpath=//h2[contains(@class, 'title') and text()='%s']";
+    private final String listProductItems = "xpath=//div[@class='features_items']//div[@class='col-sm-4']";
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -17,7 +21,7 @@ public class ProductsPage extends BasePage {
 
     @Step("Verify 'ALL PRODUCTS' page is visible")
     public boolean isAllProductsPageVisible() {
-        return isElementVisible(allProductsTitle);
+        return isElementVisible(txtAllProductsHeading);
     }
 
     @Step("Verify products list is visible")
@@ -27,6 +31,22 @@ public class ProductsPage extends BasePage {
 
     @Step("Click on 'View Product' of first product")
     public void clickViewProductOfFirstProduct() {
-        click(viewProductButton);
+        click(btnViewProduct);
+    }
+
+    @Step("Enter product name: {0} and click search button")
+    public void searchProduct(String productName) {
+        enterText(txtSearchInput, productName);
+        click(btnSearch);
+    }
+
+    @Step("Verify searched products heading: {0} is visible")
+    public boolean isSearchedProductsHeadingVisible(String heading) {
+        return isElementVisible(setDynamicLocator(txtSearchedProductsHeading, heading));
+    }
+
+    @Step("Verify all the products related to search are visible")
+    public boolean isProductsRelatedToSearchVisible() {
+        return isElementVisible(listProductItems);
     }
 }

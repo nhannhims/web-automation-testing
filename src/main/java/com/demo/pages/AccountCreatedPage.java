@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 
 public class AccountCreatedPage extends CommonPage {
     // Locators
-    private String txtAccountCreated = "xpath=//h2[contains(., 'Account Created')]";
+    private String txtAccountCreatedHeading = "xpath=//h2[contains(., 'Account Created')]";
     private String btnContinue = "css=a[data-qa='continue-button']";
 
     public AccountCreatedPage(WebDriver driver) {
@@ -20,7 +20,7 @@ public class AccountCreatedPage extends CommonPage {
      */
     @Step("Check if account created heading is visible")
     public boolean isAccountCreatedVisible() {
-        return isElementVisible(txtAccountCreated);
+        return isElementVisible(txtAccountCreatedHeading);
     }
 
     /**

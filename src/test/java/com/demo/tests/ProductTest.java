@@ -12,6 +12,7 @@ import com.demo.pages.PageFactoryManager;
 import com.demo.tests.base.BaseTest;
 import com.demo.utils.ConfigReader;
 import com.demo.utils.NavigationUtils;
+import com.demo.constants.TestDataConstants;
 
 public class ProductTest extends BaseTest {
 
@@ -55,5 +56,35 @@ public class ProductTest extends BaseTest {
         softAssert.assertTrue(productDetailPage.isConditionVisible(), "Condition is not visible!");
         softAssert.assertTrue(productDetailPage.isBrandVisible(), "Brand is not visible!");
         softAssert.assertAll();
+    }
+
+    @Test(description = "TC009: Search Product")
+    public void testSearchProduct() {
+        // Init Pages
+        HomePage homePage = PageFactoryManager.getHomePage(getDriver());
+        ProductsPage productsPage = PageFactoryManager.getProductsPage(getDriver());
+
+        // 1. Launch browser & 2. Navigate to url 'http://automationexercise.com'
+        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
+
+        // 3. Verify that home page is visible successfully
+        Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver())
+                .contains(ConfigReader.getProperty(FrameworkConstants.URL)), "Home page is not visible!");
+
+        // 4. Click on 'Products' button
+        homePage.clickHeaderNavMenu(HeaderNavigationConstants.PRODUCTS_LINK);
+
+        // 5. Verify user is navigated to ALL PRODUCTS page successfully
+        Assert.assertTrue(productsPage.isAllProductsPageVisible(), "ALL PRODUCTS page is not visible!");
+
+        // 6. Enter product name in search input and click search button
+        productsPage.searchProduct(TestDataConstants.SEARCH_PRODUCT_NAME);
+
+        // 7. Verify 'SEARCHED PRODUCTS' is visible
+        Assert.assertTrue(productsPage.isSearchedProductsHeadingVisible(TestDataConstants.SEARCHED_PRODUCTS_HEADING),
+                "'" + TestDataConstants.SEARCHED_PRODUCTS_HEADING + "' heading is not visible!");
+
+        // 8. Verify all the products related to search are visible
+        Assert.assertTrue(productsPage.isProductsRelatedToSearchVisible(), "Products related to search are not visible!");
     }
 }

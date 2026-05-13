@@ -18,4 +18,6 @@ public class TestDataConstants {
     public static final String UPLOAD_FILE_PATH = FrameworkConstants.PROJECT_PATH
             + "/src/test/resources/data/upload_test.txt";
     public static final String CONTACT_US_SUCCESS_MSG = "Success! Your details have been submitted successfully.";
+    public static final String SEARCH_PRODUCT_NAME = "Blue Top";
+    public static final String SEARCHED_PRODUCTS_HEADING = "Searched Products";
 }
