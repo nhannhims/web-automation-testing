@@ -1,5 +1,6 @@
 package com.demo.utils;
 
+import com.demo.constants.FrameworkConstants;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Set;
@@ -14,6 +15,13 @@ public class NavigationUtils {
             LogUtils.info("Navigating to URL: " + url);
             driver.get(url);
         }
+    }
+
+    /**
+     * Navigate to the home page URL defined in config
+     */
+    public static void navigateToHome(WebDriver driver) {
+        openUrl(driver, ConfigReader.getProperty(FrameworkConstants.URL));
     }
 
     /**

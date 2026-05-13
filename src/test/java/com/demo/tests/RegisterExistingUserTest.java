@@ -50,9 +50,6 @@ public class RegisterExistingUserTest extends BaseTest {
         HomePage homePage = PageFactoryManager.getHomePage(getDriver());
         LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
 
-        // 1-2. Launch browser and Navigate to url
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-
         // 3. Verify that home page is visible successfully
         Assert.assertTrue(
                 NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty(FrameworkConstants.URL)));

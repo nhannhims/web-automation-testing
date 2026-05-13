@@ -14,6 +14,9 @@ public class ProductsPage extends BasePage {
     private final String btnSearch = "id=submit_search";
     private final String txtSearchedProductsHeading = "xpath=//h2[contains(@class, 'title') and text()='%s']";
     private final String listProductItems = "xpath=//div[@class='features_items']//div[@class='col-sm-4']";
+    private final String btnAddToCartFirstProduct = "xpath=(//div[@class='features_items']//a[text()='Add to cart'])[1]";
+    private final String btnContinueShopping = "xpath=//button[text()='Continue Shopping']";
+    private final String btnViewCart = "xpath=//u[text()='View Cart']";
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -48,5 +51,20 @@ public class ProductsPage extends BasePage {
     @Step("Verify all the products related to search are visible")
     public boolean isProductsRelatedToSearchVisible() {
         return isElementVisible(listProductItems);
+    }
+
+    @Step("Add first product to cart")
+    public void addFirstProductToCart() {
+        click(btnAddToCartFirstProduct);
+    }
+
+    @Step("Click 'Continue Shopping' button")
+    public void clickContinueShopping() {
+        click(btnContinueShopping);
+    }
+
+    @Step("Click 'View Cart' link in modal")
+    public void clickViewCart() {
+        click(btnViewCart);
     }
 }

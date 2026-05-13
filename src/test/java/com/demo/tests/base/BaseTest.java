@@ -2,6 +2,7 @@ package com.demo.tests.base;
 
 import com.demo.constants.FrameworkConstants;
 import com.demo.drivers.DriverManager;
+import com.demo.utils.NavigationUtils;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +17,8 @@ public class BaseTest {
     public void setUp(@Optional(FrameworkConstants.CHROME) String browser) {
         // Initialize browser based on parameter from testng.xml (default is chrome)
         DriverManager.initDriver(browser);
+        // Automatically navigate to application URL
+        NavigationUtils.navigateToHome(getDriver());
     }
 
     public WebDriver getDriver() {

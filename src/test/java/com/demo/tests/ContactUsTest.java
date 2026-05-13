@@ -28,9 +28,6 @@ public class ContactUsTest extends BaseTest {
         HomePage homePage = PageFactoryManager.getHomePage(getDriver());
         ContactUsPage contactUsPage = PageFactoryManager.getContactUsPage(getDriver());
 
-        // 1. Launch browser & 2. Navigate to url 'http://automationexercise.com'
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-
         // 3. Verify that home page is visible successfully
         Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver())
                 .contains(ConfigReader.getProperty(FrameworkConstants.URL)), "Home page is not visible!");

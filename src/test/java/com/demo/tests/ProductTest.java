@@ -23,9 +23,6 @@ public class ProductTest extends BaseTest {
         ProductsPage productsPage = PageFactoryManager.getProductsPage(getDriver());
         ProductDetailPage productDetailPage = PageFactoryManager.getProductDetailPage(getDriver());
 
-        // 1. Launch browser & 2. Navigate to url 'http://automationexercise.com'
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-
         // 3. Verify that home page is visible successfully
         Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver())
                 .contains(ConfigReader.getProperty(FrameworkConstants.URL)), "Home page is not visible!");
@@ -63,9 +60,6 @@ public class ProductTest extends BaseTest {
         // Init Pages
         HomePage homePage = PageFactoryManager.getHomePage(getDriver());
         ProductsPage productsPage = PageFactoryManager.getProductsPage(getDriver());
-
-        // 1. Launch browser & 2. Navigate to url 'http://automationexercise.com'
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
 
         // 3. Verify that home page is visible successfully
         Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver())

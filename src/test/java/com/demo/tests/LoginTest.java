@@ -35,9 +35,6 @@ public class LoginTest extends BaseTest {
         HomePage homePage = PageFactoryManager.getHomePage(getDriver());
         LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
 
-        // 1. Navigate to application URL
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-        
         // 2. Verify that home page is visible successfully
         Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty(FrameworkConstants.URL)));
         
@@ -62,9 +59,6 @@ public class LoginTest extends BaseTest {
         HomePage homePage = PageFactoryManager.getHomePage(getDriver());
         LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
 
-        // 1. Navigate to application URL
-        NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-        
         // 2. Verify that home page is visible successfully
         Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver()).contains(ConfigReader.getProperty(FrameworkConstants.URL)));
         

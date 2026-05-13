@@ -37,4 +37,20 @@ public class PageFactoryManager {
     public static ProductDetailPage getProductDetailPage(WebDriver driver) {
         return new ProductDetailPage(driver);
     }
+
+    public static CartPage getCartPage(WebDriver driver) {
+        return new CartPage(driver);
+    }
+
+    public static CheckoutPage getCheckoutPage(WebDriver driver) {
+        return new CheckoutPage(driver);
+    }
+
+    public static PaymentPage getPaymentPage(WebDriver driver) {
+        return new PaymentPage(driver);
+    }
+
+    public static PaymentDonePage getPaymentDonePage(WebDriver driver) {
+        return new PaymentDonePage(driver);
+    }
 }

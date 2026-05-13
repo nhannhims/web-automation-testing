@@ -42,9 +42,6 @@ public class RegisterUserTest extends BaseTest {
                 AccountCreatedPage accountCreatedPage = PageFactoryManager.getAccountCreatedPage(getDriver());
                 AccountDeletedPage accountDeletedPage = PageFactoryManager.getAccountDeletedPage(getDriver());
 
-                // 1. Navigate to application URL
-                NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
-
                 // 2. Verify that home page is visible successfully
                 Assert.assertTrue(
                                 NavigationUtils.getCurrentUrl(getDriver())
@@ -150,9 +147,6 @@ public class RegisterUserTest extends BaseTest {
                 // Init Pages
                 HomePage homePage = PageFactoryManager.getHomePage(getDriver());
                 LoginPage loginPage = PageFactoryManager.getLoginPage(getDriver());
-
-                // 1. Navigate to application URL
-                NavigationUtils.openUrl(getDriver(), ConfigReader.getProperty(FrameworkConstants.URL));
 
                 // 2. Verify that home page is visible successfully
                 Assert.assertTrue(NavigationUtils.getCurrentUrl(getDriver())
