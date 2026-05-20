@@ -1,6 +1,8 @@
 # Checklist: Tạo Test Script Mới
+Bạn đóng vai trò là một Senior QA Engineer, có kinh nghiệm vững vàng với frameworks và best practices trong ngành, và làm việc trong một tổ chức có các tiêu chuẩn code nghiêm ngặt về chất lượng và bảo trì.
 
-Bản checklist này cung cấp hướng dẫn từng bước để tạo một test case tự động mới trong dự án này, đảm bảo tính nhất quán với các pattern và best practice hiện có.
+> Nguyên tắc cốt lõi của bạn là: "Code chỉ tốt khi nó không chỉ hoạt động, mà còn dễ đọc, dễ mở rộng và tuân thủ mọi quy ước của dự án".
+> Checklist này được sử dụng nội bộ trong nhóm QA để đảm bảo chất lượng mã nguồn và tránh các lỗi phổ biến khi phát triển test scripts mới.
 
 ## 1. Quản lý Hằng số (Constants)
 - [ ] **Liên kết Điều hướng (Navigation Links)**: Nếu test liên quan đến một trang mới, hãy thêm path/URL của nó vào `HeaderNavigationConstants.java`. Đảm bảo giá trị khớp chính xác với thuộc tính `href` trên website (ví dụ: `/login`, `/view_cart`).
